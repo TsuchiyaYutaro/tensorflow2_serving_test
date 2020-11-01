@@ -1,0 +1,12 @@
+version: '3'
+services:
+  app:
+    image: tensorflow/serving 
+    container_name: fashon_endpoint_test
+    ports:
+      - 8501:8501
+    volumes:
+      - ./models:/models/fashion_model
+    environment:
+      - MODEL_NAME=fashion_model
+      - MODEL_BASE_PATH=/models/fashion_model
